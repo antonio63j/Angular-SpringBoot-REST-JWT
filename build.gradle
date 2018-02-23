@@ -84,6 +84,10 @@ task var << {
 	}
 }
 
+task listaVar (){
+  println "${sourceSets.main.resources.srcDirs[0]}"
+}
+
 
 compileJava.dependsOn downloadRedoc
 copyWebui.dependsOn removeWebui
