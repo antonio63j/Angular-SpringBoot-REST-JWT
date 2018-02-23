@@ -6,12 +6,22 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.transaction.annotation.*;
 
+import com.app.config.GenerateTokenForUserFilter;
+
+import lombok.extern.slf4j.Slf4j;
+
+import lombok.extern.slf4j.Slf4j;
+
 @SpringBootApplication
 @EnableJpaRepositories(basePackages ={ "com.app.repo"})
 @EntityScan(basePackages ={ "com.app.model"})
 @EnableTransactionManagement
+
+@Slf4j
+
 public class MainApp {
 	public static void main(String[] args) throws Exception {
+		log.debug(" MainApp en debug");
 		new SpringApplication(MainApp.class).run(args);
 	}
 }
