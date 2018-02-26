@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.response.*;
+
+import lombok.extern.slf4j.Slf4j;
+
 import static com.app.model.response.OperationResponse.*;
 
 /*
@@ -17,10 +20,13 @@ Use @ExceptionHandler annotation to define the class of Exception it will catch.
 */
 @ControllerAdvice
 @RestController
+
+@Slf4j
 public class GlobalExceptionHandler {
     @ExceptionHandler(value = DataIntegrityViolationException.class)
     public OperationResponse handleBaseException(DataIntegrityViolationException e){
         OperationResponse resp = new OperationResponse();
+        log.debug("En handleBaseException");
         resp.setOperationStatus(ResponseStatusEnum.ERROR);
         resp.setOperationMessage(e.getRootCause().getMessage());
         return resp;
