@@ -84,7 +84,8 @@ public class GenerateTokenForUserFilter extends AbstractAuthenticationProcessing
         resp.setOperationMessage("Login Success");
         resp.setItem(respItem);
         String jsonRespString = ow.writeValueAsString(resp);
-
+        
+        // Generacion respuesta a login === /session
         res.setStatus(HttpServletResponse.SC_OK);
         res.getWriter().write(jsonRespString);
         //res.getWriter().write(jsonResp.toString());
